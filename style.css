@@ -649,6 +649,7 @@ button:hover {
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 1%;
+    margin-left: 4%;
 }
 
 #image8 {
