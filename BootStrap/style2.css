@@ -39,5 +39,31 @@ body {
 
 }
 
+#logo img {
+    
+    width: 17%;
+    padding-left: 5.5%;
+    margin-left: 3%;
+    margin-top: 5%;
+   
+}
 
+
+
+#saveupto{
+    margin-top: 5%;
+}
+
+#Host{
+    padding-left: 6%;
+    
+}
+/* #Suport{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 6.2%;
+    font-size: 7%;
+    margin-bottom: 20px;
+    width: 40%;
+
+} */
 

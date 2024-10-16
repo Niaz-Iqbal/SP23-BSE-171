@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Form</title>
+    <style>
+        body {
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+        }
+        .form-container {
+            border: 2px solid red;
+            background-color: aliceblue;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="button"], .form-container input[type="submit"] {
+            width: auto;
+            cursor: pointer;
+        }
+        .error {
+            border: 1px solid red;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        function handleFormSubmit(event) {
+            // Retrieve form fields
+            let name = document.getElementById("name");
+            let rollNumber = document.getElementById("roll-number");
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+            let query = document.getElementById("query");
+            let isValid = true;
+
+            // Validate Name
+            if (!name.value) {
+                name.classList.add("error");
+                document.getElementById("name-error").style.display = "inline";
+                isValid = false;
+            } else {
+                name.classList.remove("error");
+                document.getElementById("name-error").style.display = "none";
+            }
+
+            // Validate Roll Number
+            if (!rollNumber.value) {
+                rollNumber.classList.add("error");
+                document.getElementById("roll-error").style.display = "inline";
+                isValid = false;
+            } else {
+                rollNumber.classList.remove("error");
+                document.getElementById("roll-error").style.display = "none";
+            }
+
+            // Validate Email
+            if (!email.value || !email.checkValidity()) {
+                email.classList.add("error");
+                document.getElementById("email-error").style.display = "inline";
+                isValid = false;
+            } else {
+                email.classList.remove("error");
+                document.getElementById("email-error").style.display = "none";
+            }
+
+            // Validate Password
+            if (!password.value) {
+                password.classList.add("error");
+                document.getElementById("password-error").style.display = "inline";
+                isValid = false;
+            } else {
+                password.classList.remove("error");
+                document.getElementById("password-error").style.display = "none";
+            }
+
+            // Validate Google Query
+            if (!query.value) {
+                query.classList.add("error");
+                document.getElementById("query-error").style.display = "inline";
+                isValid = false;
+            } else {
+                query.classList.remove("error");
+                document.getElementById("query-error").style.display = "none";
+            }
+
+            if (!isValid) {
+                event.preventDefault();  // Stop form submission if not valid
+            }
+        }
+
+        window.onload = function () {
+            var form = document.getElementById("gform");
+            form.onsubmit = handleFormSubmit;
+        }
+    </script>
+</head>
+<body>
+    <form id="gform" action="https://google.com/search">
+        <div class="form-container">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name">
+            <span id="name-error" class="error-message">Name is required.</span>
+
+            <label for="roll-number">Roll Number</label>
+            <input id="roll-number" type="text" name="roll-number">
+            <span id="roll-error" class="error-message">Roll number is required.</span>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email">
+            <span id="email-error" class="error-message">Valid email is required.</span>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password">
+            <span id="password-error" class="error-message">Password is required.</span>
+
+            <label for="query">Google Query</label>
+            <input id="query" type="text" name="q" value="">
+            <span id="query-error" class="error-message">Query is required.</span>
+
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
