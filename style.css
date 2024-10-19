@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-}  
+}
 
 #top {
     text-align: center;
@@ -284,6 +284,7 @@ button:hover {
 #container {
     background-color: rgba(255, 255, 255, 0.183);
 
+
     height: 2250px;
 
 }
@@ -292,7 +293,6 @@ button:hover {
     color: black;
     width: 18%;
     text-align: left;
-    /*  */
     margin-top: 5%;
     margin-left: 5%;
     font-size: larger;
@@ -385,6 +385,7 @@ button:hover {
 #container2 {
     display: flex;
     flex-direction: column;
+
 
 }
 
@@ -1194,6 +1195,24 @@ h2 {
     margin-top: 5%;
 }
 
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin-right: 20px;
+}
+
 #container8 {
     display: flex;
     flex-direction: row;
@@ -1221,23 +1240,6 @@ h2 {
     text-align: center;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-    text-align: left;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    margin-right: 20px;
-}
 
 .footer-section h3 {
     color: #8bc34a;
