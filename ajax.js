@@ -71,9 +71,9 @@ function postData() {
         dataType: "json",
         contentType: "application/json",  
         data: JSON.stringify({
-            name: 'Abdullah',
-            username: 'abd',
-            email: 'abd@example.com'
+            name: 'Niaz',
+            username: 'Niaz',
+            email: 'niaz@example.com'
         }),
         success: function (data) {
             let user = $("#user");
@@ -107,9 +107,9 @@ function putData() {
         dataType: "json",
         contentType: "application/json",  
         data: JSON.stringify({
-            name: 'moneeb',
-            username: 'moneebazhar',
-            email: 'moneeb@example.com'
+            name: 'moiz',
+            username: 'moizmurtaza',
+            email: 'moiz@example.com'
         }),
         success: function (data) {
             let user = $("#user");
@@ -141,9 +141,9 @@ function patchData() {
         dataType: "json",
         contentType: "application/json",  
         data: JSON.stringify({
-            name: 'waleed',
-            username: 'waleedGill',
-            email: 'waleed@example.com'
+            name: 'Ahsan',
+            username: 'MuhammadAhsan',
+            email: 'Ahsan@example.com'
         }),
         success: function (data) {
             let user = $("#user");
