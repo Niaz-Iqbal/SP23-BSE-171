@@ -33,7 +33,7 @@ function getData() {
 
 function getUserDataForSpecificUser(userId) {
     $.ajax({
-        url: https://jsonplaceholder.typicode.com/users/${userId},
+        url: "https://jsonplaceholder.typicode.com/users/${userId}",
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -177,7 +177,7 @@ function deleteData() {
             user.empty();  
 
             
-            user.append(<div>User with ID 3 has been deleted successfully.</div>);
+            user.append(`<div>User with ID 3 has been deleted successfully.</div>`);
         },
         error: function (error) {
             console.error("Error deleting user data:", error);
