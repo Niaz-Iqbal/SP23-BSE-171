@@ -43,76 +43,31 @@
             display: none;
         }
     </style>
+
     <script>
         function handleFormSubmit(event) {
-            // Retrieve form fields
-            let name = document.getElementById("name");
-            let rollNumber = document.getElementById("roll-number");
-            let email = document.getElementById("email");
-            let password = document.getElementById("password");
-            let query = document.getElementById("query");
-            let isValid = true;
 
-            // Validate Name
-            if (!name.value) {
-                name.classList.add("error");
-                document.getElementById("name-error").style.display = "inline";
-                isValid = false;
-            } else {
-                name.classList.remove("error");
-                document.getElementById("name-error").style.display = "none";
-            }
-
-            // Validate Roll Number
-            if (!rollNumber.value) {
-                rollNumber.classList.add("error");
-                document.getElementById("roll-error").style.display = "inline";
-                isValid = false;
-            } else {
-                rollNumber.classList.remove("error");
-                document.getElementById("roll-error").style.display = "none";
-            }
-
-            // Validate Email
-            if (!email.value || !email.checkValidity()) {
-                email.classList.add("error");
-                document.getElementById("email-error").style.display = "inline";
-                isValid = false;
-            } else {
-                email.classList.remove("error");
-                document.getElementById("email-error").style.display = "none";
-            }
-
-            // Validate Password
-            if (!password.value) {
-                password.classList.add("error");
-                document.getElementById("password-error").style.display = "inline";
-                isValid = false;
-            } else {
-                password.classList.remove("error");
-                document.getElementById("password-error").style.display = "none";
-            }
-
-            // Validate Google Query
-            if (!query.value) {
-                query.classList.add("error");
-                document.getElementById("query-error").style.display = "inline";
-                isValid = false;
-            } else {
-                query.classList.remove("error");
-                document.getElementById("query-error").style.display = "none";
-            }
-
-            if (!isValid) {
-                event.preventDefault();  // Stop form submission if not valid
+            let name = document.getElementById("name").value;
+            let rollNumber = document.getElementById("roll-number").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let query = document.getElementById("query").value;
+    
+            // Simple validation
+            if (!name || !rollNumber || !email || !password || !query) {
+                alert("All fields must be filled out.");
+                event.preventDefault();  
             }
         }
-
+    
+    
         window.onload = function () {
-            var form = document.getElementById("gform");
-            form.onsubmit = handleFormSubmit;
-        }
+            document.getElementById("gform").onsubmit = handleFormSubmit;
+        };
+
     </script>
+    
+    
 </head>
 <body>
     <form id="gform" action="https://google.com/search">
