@@ -194,5 +194,5 @@ $(function() {
     $('#button3').on('click', postData); 
     $('#button4').on('click', putData); 
     $('#button5').on('click', patchData); 
-    $('#button6').on('click', deleteData); 
+    $('#button6').on('click', deleteData);
 });
