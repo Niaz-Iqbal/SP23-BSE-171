@@ -33,7 +33,7 @@ function getData() {
 
 function getUserDataForSpecificUser(userId) {
     $.ajax({
-        url: "https://jsonplaceholder.typicode.com/users/${userId}",
+        url: `https://jsonplaceholder.typicode.com/users/${userId}`,
         method: "GET",
         dataType: "json",
         success: function (data) {
