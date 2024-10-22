@@ -6,6 +6,7 @@
     <title>Maria Leah Mabutin - Resume</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body>
     <div class="container">
@@ -13,7 +14,7 @@
             <div class="profile-picture">
                 <img src="pic.jpg" alt="Maria Leah Mabutin">
             </div>
-            <div class="intro-box">
+            <div class="intro-box" style="display: none;">
                 <p><strong>Muhammad Niaz Iqbal</strong></p>
                 <p>Software Developer based in Lahore with expertise in full-stack web development.</p>
             </div>
@@ -70,6 +71,22 @@
         </div>
     </div>
 
-    <script src="script.js"></script> 
+    <!-- <script src="script.js"></script>  -->
+     <script>
+        const profilePicture = document.querySelector('.profile-picture img');
+const introBox = document.querySelector('.intro-box');
+
+
+profilePicture.addEventListener('mouseenter', function() {
+    introBox.style.display = 'block';  
+});
+
+
+profilePicture.addEventListener('mouseleave', function() {
+    introBox.style.display = 'none';   
+});
+
+     </script>
 </body>
+
 </html>
