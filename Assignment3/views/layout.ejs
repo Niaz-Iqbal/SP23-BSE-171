@@ -5,10 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
   <link rel="stylesheet" href="/style.css">
+
+  <style>
+  h1 {
+    color: #ff9800;
+    text-align: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  /* Hover effect for h1 */
+  /* h1:hover {
+    background-color: #ff5722;
+    color: #fff;
+  } */
+  </style>
 </head>
+
 <body>
   <header>
-    <h1>My Website</h1>
+    <div></div><h1 style="text-align: center; ">My Website</h1>
     <%- include('./partials/menu') %>
     
   </header>

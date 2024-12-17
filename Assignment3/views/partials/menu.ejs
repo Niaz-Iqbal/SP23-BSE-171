@@ -1,7 +1,44 @@
-<ul id="menu">
-    <li><a href="/">Home</a></li>
-    <li><a href="/contact-us">About Us</a></li>
-    <!-- <li><a href="/about-us"></a></li> -->
-    <li><a href="/admin/dashboard">Admin Panel</a></li>
-    
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <style>
+      /* Navbar Styling */
+      #menu {
+        background: #2c3e50;
+        padding: 10px;
+        text-align: center;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Adds spacing between menu items */
+      }
+
+      /* Styling only anchor tags */
+      #menu a {
+        color: #ff9800;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      /* Hover effect for anchor tags */
+      #menu a:hover {
+        background-color: #ff5722;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Menu -->
+    <ul id="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/contact-us">About Us</a></li>
+    </ul>
+  </body>
+</html>
