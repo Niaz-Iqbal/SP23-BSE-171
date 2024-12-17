@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categories</title>
+    <style>
+      /* General Body Styling */
+      body {
+        background: linear-gradient(
+          45deg,
+          #1c1c1c,
+          #2c3e50
+        ); /* Dark blue gradient */
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Categories Section Styling */
+      .categories-section {
+        margin: 30px auto;
+        max-width: 600px;
+        background-color: #34495e; /* Darker background for the categories section */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .categories-section h1 {
+        color: #ff9800; /* Orange title color */
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .categories-section a {
+        text-decoration: none;
+        color: #fff;
+        background-color: #ff9800; /* Orange color */
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-right: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .categories-section a:hover {
+        background-color: #ff5722; /* Darker orange */
+      }
+
+      .categories-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .categories-section li {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .categories-section span {
+        color: #1c1c1c;
+      }
+
+      .categories-section button {
+        background-color: #f44336; /* Red color */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .categories-section button:hover {
+        background-color: #d32f2f; /* Darker red */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (Optional) -->
+    <nav>
+      <!-- Existing navigation content -->
+    </nav>
+
+    <!-- Categories Section -->
+    <div class="categories-section">
+      <h1>Categories</h1>
+      <a href="/admin/categories/new" style="margin-left: 37%"
+        >Add New Category</a
+      >
+      <ul>
+        <% categories.forEach(category => { %>
+        <li>
+          <!-- Use title and detail from MongoDB schema -->
+          <span>
+            <b><%= category.title %></b>
+            <br />
+            <small><%= category.detail %></small>
+          </span>
+          <div>
+            <a href="/admin/categories/<%= category._id %>/edit">Edit</a>
+            <form
+              action="/admin/categories/<%= category._id %>/delete"
+              method="POST"
+              style="display: inline"
+            >
+              <button type="submit" style="margin-top: 15%">Delete</button>
+            </form>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

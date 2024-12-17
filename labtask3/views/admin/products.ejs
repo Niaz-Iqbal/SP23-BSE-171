@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <style>
+      /* General Body Styling */
+      body {
+        background: linear-gradient(
+          45deg,
+          #1c1c1c,
+          #2c3e50
+        ); /* Dark gradient */
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Navbar Styling */
+      nav {
+        background: #2c3e50;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav a {
+        color: #ff9800;
+        text-decoration: none;
+        margin-right: 15px;
+        font-size: 1rem;
+      }
+
+      /* Products Section */
+      .products-section {
+        margin: 30px auto;
+        max-width: 700px;
+        background-color: #34495e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .products-section h1 {
+        color: #ff9800;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .products-section a.add-button {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #4caf50;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .products-section a.add-button:hover {
+        background-color: #45a049;
+      }
+
+      .products-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .products-section li {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .products-section .product-details {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .products-section img {
+        width: 100px;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .products-section .product-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .products-section span {
+        color: #1c1c1c;
+        display: block;
+      }
+
+      .products-section a,
+      .products-section button {
+        text-decoration: none;
+        color: #fff;
+        background-color: #ff9800;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        margin-right: 5px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .products-section a:hover,
+      .products-section button:hover {
+        background-color: #ff5722;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <!-- <nav>
+    <a href="/">Home</a>
+    <a href="/admin">Dashboard</a>
+  </nav> -->
+
+    <!-- Products Section -->
+    <div class="products-section">
+      <h1>Products</h1>
+      <a href="/admin/products/add" class="add-button">Add New Product</a>
+
+      <ul>
+        <% if (products.length > 0) { %> <% products.forEach(product => { %>
+        <li>
+          <div class="product-details">
+            <!-- Product Image -->
+            <img src="/<%= product.image %>" alt="<%= product.name %>" />
+
+            <!-- Product Info -->
+            <div class="product-info">
+              <span><b>Name:</b> <%= product.name %></span>
+              <span><b>Detail:</b> <%= product.detail %></span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div>
+            <a href="/admin/products/<%= product._id %>/edit">Edit</a>
+            <form
+              action="/admin/products/<%= product._id %>/delete"
+              method="POST"
+              style="display: inline"
+            >
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        </li>
+        <% }) %> <% } else { %>
+        <p style="text-align: center">
+          No products available. Start by adding a new product.
+        </p>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>
