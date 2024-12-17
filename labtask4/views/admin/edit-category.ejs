@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Category</title>
+    <style>
+      /* General Body Styling */
+      body {
+        background: linear-gradient(
+          45deg,
+          #1c1c1c,
+          #2c3e50
+        ); /* Dark blue gradient */
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Form Section Styling */
+      .form-section {
+        margin: 50px auto;
+        max-width: 500px;
+        background-color: #34495e; /* Darker background for the form */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-section h1 {
+        text-align: center;
+        color: #ff9800; /* Orange color for title */
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .form-section form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .form-section input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-section button {
+        background-color: #ff9800; /* Orange button */
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .form-section button:hover {
+        background-color: #ff5722; /* Darker orange on hover */
+      }
+
+      .form-section a {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        color: white;
+        background-color: #ff9800; /* Orange color for back link */
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s;
+      }
+
+      .form-section a:hover {
+        background-color: #ff5722; /* Darker orange on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-section">
+      <h1>Edit Category</h1>
+      <form action="" method="POST">
+        <!-- Input field for category title -->
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value="<%= category.title %>"
+          required
+        />
+
+        <!-- Input field for category details -->
+        <label for="detail">Detail</label>
+        <input
+          type="text"
+          name="detail"
+          id="detail"
+          value="<%= category.detail %>"
+          required
+        />
+
+        <!-- Update Button -->
+        <button type="submit">Update</button>
+      </form>
+      <!-- Back Button -->
+      <a href="/admin/categories">Back</a>
+    </div>
+  </body>
+</html>

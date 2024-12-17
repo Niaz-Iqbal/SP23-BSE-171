@@ -8,7 +8,7 @@ const Category = require("../../models/category");
 router.get("/admin/categories", async (req, res) => {
   try {
     const categories = await Category.find(); // Fetch categories from MongoDB
-    res.render("admin/itemcategories", { categories,layout: "layout/adminlayout" });
+    res.render("admin/itemcategories", { categories });
   } catch (err) {
     res.status(500).send("Error fetching categories");
   }

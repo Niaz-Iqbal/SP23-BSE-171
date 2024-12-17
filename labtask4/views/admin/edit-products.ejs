@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Product</title>
+    <style>
+      /* General Body Styling */
+      body {
+        background: linear-gradient(45deg, #1c1c1c, #2c3e50);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Navbar Styling */
+      nav {
+        background: #2c3e50;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav a {
+        color: #ff9800;
+        text-decoration: none;
+        margin-right: 15px;
+        font-size: 1rem;
+      }
+
+      /* Form Container */
+      .edit-product-container {
+        margin: 30px auto;
+        max-width: 600px;
+        background-color: #34495e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .edit-product-container h1 {
+        text-align: center;
+        color: #ff9800;
+        margin-bottom: 20px;
+      }
+
+      .edit-product-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .edit-product-container input[type="text"],
+      .edit-product-container textarea,
+      .edit-product-container input[type="file"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      .edit-product-container img {
+        display: block;
+        margin: 10px 0;
+        width: 150px;
+        height: auto;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+
+      .edit-product-container button,
+      .edit-product-container a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        background-color: #4caf50;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+      }
+
+      .edit-product-container button:hover,
+      .edit-product-container a:hover {
+        background-color: #45a049;
+      }
+
+      .edit-product-container .back-button {
+        background-color: #ff9800;
+      }
+
+      .edit-product-container .back-button:hover {
+        background-color: #ff5722;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <!-- <nav>
+    <a href="/">Home</a>
+    <a href="/admin">Dashboard</a>
+  </nav> -->
+
+    <!-- Edit Product Form -->
+    <div class="edit-product-container">
+      <h1>Edit Product</h1>
+      <form action="" method="POST" enctype="multipart/form-data">
+        <!-- Product Name -->
+        <label for="name">Product Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= product.name %>"
+          required
+        />
+
+        <!-- Product Detail -->
+        <label for="detail">Product Detail:</label>
+        <textarea id="detail" name="detail" rows="4" required>
+<%= product.detail %></textarea
+        >
+
+        <!-- Current Image -->
+        <label>Current Image:</label>
+        <img src="/<%= product.image %>" alt="Current Image" />
+
+        <!-- Change Image -->
+        <label for="image">Change Image:</label>
+        <input type="file" id="image" name="image" />
+
+        <!-- Submit and Back -->
+        <button type="submit">Update Product</button>
+        <a href="/admin/products" class="back-button">Back</a>
+      </form>
+    </div>
+  </body>
+</html>
