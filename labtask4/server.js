@@ -36,9 +36,6 @@ app.use(categoryRouter);
 const productsRouter = require('./routes/admin/websiteproduts.router');
 app.use(productsRouter);
 
-let searchRouter = require("./routes/admin/search.router");
-app.use(searchRouter);
-
 
 
 
