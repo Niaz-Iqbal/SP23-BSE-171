@@ -4,7 +4,7 @@ const expressLayouts = require("express-ejs-layouts");
 const methodOverride = require("method-override");
 const path = require("path");
 const bodyParser = require('body-parser');
-const Category = require('./models/category'); 
+// const Category = require('./models/category'); 
 
 let app = express();
 
@@ -35,10 +35,6 @@ app.use(categoryRouter);
 
 const productsRouter = require('./routes/admin/websiteproduts.router');
 app.use(productsRouter);
-
-
-
-
 
 
 let connectionString = "mongodb://localhost:27017/database";

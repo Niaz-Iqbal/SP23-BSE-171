@@ -7,6 +7,37 @@
     <title>A2hosting</title>
     <link rel="stylesheet" href="/allcss/menu.css">
 </head>
+<style>
+    /* menu.css */
+#menu {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* Dark background for the menu */
+    position: sticky;
+    top: 0; /* This ensures the menu stays at the top of the viewport */
+    z-index: 1000; /* Makes sure the menu is always on top of other content */
+    width: 100%; /* Ensure it stretches across the full width */
+}
+
+#menu li {
+    display: inline-block; /* Aligns the menu items horizontally */
+}
+
+#menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: white; /* White text color */
+    text-decoration: none;
+    text-align: center;
+}
+
+#menu li a:hover {
+    background-color: #575757; /* Darker background on hover */
+}
+
+</style>
 <body>
     <ul id="menu">
         <li><a href="/">Home</a></li>
