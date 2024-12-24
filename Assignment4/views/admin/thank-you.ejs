@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+      
+        .thank-you-page {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4a4a4a);
+            color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .thank-you-page h1 {
+            font-size: 2.5rem;
+            color: #1abc9c;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .thank-you-page p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .thank-you-page a {
+            display: inline-block;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .thank-you-page a:hover {
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="thank-you-page">
+    <h1>Thank You for Your Purchase!</h1>
+    <p>Your order has been placed successfully.</p>
+    <a href="/admin/products/:page?">Continue Shopping</a>
+</body>
+</html>

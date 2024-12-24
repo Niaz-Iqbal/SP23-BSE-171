@@ -14,6 +14,15 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+router.get("/admin/products", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.render("admin/products", { products, layout: "layout/adminlayout" });
+  } catch (err) {
+    res.status(500).send("Error retrieving products");
+  }
+});
+
 // Route: GET form to add a product
 router.get("/admin/products/add", (req, res) => {
   res.render("admin/add-products");
@@ -72,21 +81,17 @@ router.get("/admin/products/:id/delete", async (req, res) => {
 router.get("/admin/products/:page?", async (req, res) => {
   try {
     let page = req.params.page ? Number(req.params.page) : 1; // Default to page 1
-    let pageSize = 2; // Products per page
+    let pageSize = 5; // Set to 5 products per page
     const searchQuery = req.query.search || ""; // Get search query from URL
+    const minPrice = req.query.minPrice ? Number(req.query.minPrice) : undefined;
+    const maxPrice = req.query.maxPrice ? Number(req.query.maxPrice) : undefined;
+    const sortField = req.query.sortBy || "name"; // Default to 'name'
+    const sortOrder = req.query.sortOrder === "desc" ? -1 : 1; // Default to ascending order
 
     // Ensure page is not less than 1
     if (page < 1) {
       page = 1;
     }
-
-    // Get sort query from URL or use default sort (e.g., by name ascending)
-    const sortField = req.query.sortBy || "name"; // Default to 'name'
-    const sortOrder = req.query.sortOrder === "desc" ? -1 : 1; // Default to ascending order
-
-    // Get the price filter from query parameters (minPrice and maxPrice)
-    const minPrice = req.query.minPrice ? Number(req.query.minPrice) : undefined;
-    const maxPrice = req.query.maxPrice ? Number(req.query.maxPrice) : undefined;
 
     // Build the query object dynamically based on search and price filters
     const query = {};
@@ -95,7 +100,6 @@ router.get("/admin/products/:page?", async (req, res) => {
       query.name = { $regex: searchQuery, $options: "i" }; // Case-insensitive partial match
     }
 
-    // Add price filters to the query if provided
     if (minPrice !== undefined && maxPrice !== undefined) {
       query.price = { $gte: minPrice, $lte: maxPrice }; // Filter within the price range
     } else if (minPrice !== undefined) {
@@ -115,8 +119,8 @@ router.get("/admin/products/:page?", async (req, res) => {
     const totalPages = Math.ceil(totalRecords / pageSize);
 
     // Render the admin/products page with search, sorting, and price filter options
-    res.render("admin/products", {
-      layout: "layout/adminlayout",
+    res.render("admin/all-products", {
+      layout: "layout/mainlayout",
       products,
       page,
       totalRecords,
@@ -132,5 +136,24 @@ router.get("/admin/products/:page?", async (req, res) => {
     res.status(500).send("Error retrieving products");
   }
 });
+
+
+
+
+// Render All Products Page
+// router.get('/admin/all-products', async (req, res) => {
+//   try {
+//     const products = await Product.find(); // Fetch all products
+//     res.render('admin/all-products', {
+//       title: 'All Products',
+//       products: products,
+//       layout: 'layout/mainlayout' // Use the main layout
+//     });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send('Server Error');
+//   }
+// });
+
 
 module.exports = router;

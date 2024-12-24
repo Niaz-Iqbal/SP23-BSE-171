@@ -196,7 +196,7 @@ nav a {
 }
 
 .products-section span {
-    color: #1c1c1c;
+    color: white;
     display: block;
 }
 
@@ -345,7 +345,7 @@ h1 {
 
 .product-info {
     flex-grow: 1;
-    color: black;
+    color: white;
 }
 
 .product-info span {

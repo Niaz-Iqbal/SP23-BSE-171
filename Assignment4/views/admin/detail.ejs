@@ -1,0 +1,21 @@
+<h2>Reviews</h2>
+<div id="reviews">
+    <% reviews.forEach(review => { %>
+        <div class="review">
+            <strong><%= review.userId.name %></strong>
+            <p>Rating: <%= review.rating %></p>
+            <p><%= review.comment %></p>
+        </div>
+    <% }) %>
+</div>
+
+<h3>Submit a Review</h3>
+<form action="/products/<%= product._id %>/review" method="POST">
+    <label for="rating">Rating (1-5):</label>
+    <input type="number" name="rating" min="1" max="5" required>
+    
+    <label for="comment">Comment:</label>
+    <textarea name="comment" required></textarea>
+    
+    <button type="submit">Submit Review</button>
+</form>

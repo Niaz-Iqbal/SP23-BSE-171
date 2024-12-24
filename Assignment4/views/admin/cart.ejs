@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+      
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4a4a4a);
+            margin: 0;
+            padding: 0;
+            color: #ecf0f1;
+        }
+
+        .cart-container {
+            background: linear-gradient(to bottom, #34495e, #2c3e50);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 2rem auto;
+            border: 2px solid #1abc9c;
+            color: #ecf0f1;
+        }
+
+        .cart-container h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1abc9c;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart-item {
+            background: linear-gradient(to bottom, #2c3e50, #34495e);
+            margin-bottom: 15px;
+            padding: 20px;
+            border: 2px solid #1abc9c;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            color: #ecf0f1;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cart-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: #e74c3c;
+        }
+
+        .cart-item h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
+
+        .cart-item p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #bdc3c7;
+        }
+
+        .cart-item form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .cart-item input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        .cart-item button {
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            color: #2c3e50;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .cart-item button:hover {
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .cart-empty {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cart-total {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 2rem 0;
+            color: #ecf0f1;
+        }
+
+        .continue-shopping {
+            display: block;
+            margin: 2rem auto;
+            text-align: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #1abc9c;
+        }
+
+        .continue-shopping:hover {
+            text-decoration: underline;
+        }
+
+        /* Checkout button styles */
+        .checkout-button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 2rem auto;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            color: #2c3e50;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .checkout-button:hover {
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+            color: #ffffff;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+        <ul class="cart-list">
+            <% if (cart && cart.products.length > 0) { %>
+                <% cart.products.forEach(item => { %>
+                    <li class="cart-item">
+                        <h2><%= item.productId.name %></h2>
+                        <p>Quantity: <%= item.quantity %></p>
+                        <form action="/cart/update/<%= item.productId._id %>" method="POST">
+                            <input type="number" name="quantity" value="<%= item.quantity %>" min="1">
+                            <button type="submit">Update</button>
+                        </form>
+                        <form action="/cart/remove/<%= item.productId._id %>" method="POST">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </li>
+                <% }) %>
+                <p class="cart-total">Total Price: $<%= cart.products.reduce((total, item) => total + item.productId.price * item.quantity, 0) %></p>
+            <% } else { %>
+                <p class="cart-empty">Your cart is empty.</p>
+            <% } %>
+        </ul>
+        <a href="/admin/products/:page?" class="continue-shopping">Continue Shopping</a>
+        <a href="/checkout"><button class="checkout-button">Checkout</button></a>
+    </div>
+</body>
+</html>

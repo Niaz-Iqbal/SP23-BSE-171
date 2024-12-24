@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart History</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4a4a4a);
+            margin: 0;
+            padding: 0;
+            color: #ecf0f1;
+        }
+
+      
+        .cart-history-container {
+            background: linear-gradient(to bottom, #34495e, #2c3e50);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 2rem auto;
+            border: 2px solid #1abc9c;
+            color: #ecf0f1;
+        }
+
+        .cart-history-container h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1abc9c;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-history-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart-history-container li {
+            background: linear-gradient(to bottom, #2c3e50, #34495e);
+            margin-bottom: 15px;
+            padding: 20px;
+            border: 2px solid #1abc9c;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            color: #ecf0f1;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cart-history-container li:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: #e74c3c;
+        }
+
+        .cart-history-container a {
+            display: inline-block;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cart-history-container a:hover {
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .cart-history-container p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-history-container">
+        <h1>Cart History</h1>
+        
+        <% if (cart && cart.products.length > 0) { %>
+            <ul>
+                <% cart.products.forEach(item => { %>
+                    <li>
+                        <strong><%= item.productId.name %></strong> - Quantity: <%= item.quantity %>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>Your cart is empty.</p>
+        <% } %>
+
+        <a href="/admin">Back to Dashboard</a>
+    </div>
+</body>
+</html>

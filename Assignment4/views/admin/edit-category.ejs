@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Category</title>
+    <link rel="stylesheet" href="/allcss/editcategory.css">
+    
+  </head>
+  <body>
+    <div class="form-section">
+      <h1>Edit Category</h1>
+      <form action="" method="POST">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value="<%= category.title %>"
+          required
+        />
+
+        <label for="detail">Detail</label>
+        <input
+          type="text"
+          name="detail"
+          id="detail"
+          value="<%= category.detail %>"
+          required
+        />
+
+        <!-- Update Button -->
+        <button type="submit">Update</button>
+      </form>
+      <!-- Back Button -->
+      <a href="/admin/categories">Back</a>
+    </div>
+  </body>
+</html>

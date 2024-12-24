@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Category</title>
+    <link rel="stylesheet" href="/allcss/addcategory.css">
+   
+  </head>
+  <body>
+    <div class="form-section">
+      <h1>Create New Category</h1>
+     
+      <form action="/admin/categories" method="POST">
+        <label for="title">Category Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Enter category title"
+          required
+        />
+
+        <!-- Category Detail -->
+        <label for="detail">Category Detail</label>
+        <textarea
+          id="detail"
+          name="detail"
+          rows="4"
+          placeholder="Enter category details"
+          required
+        ></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Create</button>
+      </form>
+
+      <!-- Back Link -->
+      <a href="/admin/category">Back</a>
+    </div>
+  </body>
+</html>

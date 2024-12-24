@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Products</title>
+  <link rel="stylesheet" href="/allcss/allproducts.css">
+</head>
+
+<body>
+  <h2>All Products</h2>
+
+  <!-- Search bar, price filter, and Sort By Dropdown -->
+  <div class="search-container">
+    <form method="GET" action="/admin/products/<%= page %>">
+      <div>
+        <input type="text" name="search" placeholder="Search for products..." value="<%= searchQuery %>">
+        <input type="number" name="minPrice" placeholder="Min Price" value="<%= minPrice %>">
+        <input type="number" name="maxPrice" placeholder="Max Price" value="<%= maxPrice %>">
+        <button type="submit">Filter</button>
+      </div>
+
+      <!-- Sort By Dropdown -->
+      <select name="sortBy" onchange="this.form.submit()">
+        <option value="name" <%=sortField==='name' ? 'selected' : '' %>>Sort by Name</option>
+        <option value="createdAt" <%=sortField==='createdAt' ? 'selected' : '' %>>Sort by Date</option>
+        <option value="price" <%=sortField==='price' ? 'selected' : '' %>>Sort by Price</option>
+      </select>
+
+      <!-- Sort Order Dropdown -->
+      <select name="sortOrder" onchange="this.form.submit()">
+        <option value="asc" <%=sortOrder===1 ? 'selected' : '' %>>Ascending</option>
+        <option value="desc" <%=sortOrder===-1 ? 'selected' : '' %>>Descending</option>
+      </select>
+    </form>
+
+  </div>
+
+  <!-- Product List -->
+  <ul>
+    <% if (products.length> 0) { %>
+      <% products.forEach(product=> { %>
+        <li>
+          <div class="product-details">
+            <!-- Product Image -->
+            <img src="/<%= product.image %>" alt="<%= product.name %>" />
+
+            <!-- Product Info -->
+            <div class="product-info">
+              <span><b>Name:</b>
+                <%= product.name %>
+              </span>
+              <span><b>Detail:</b>
+                <%= product.detail %>
+              </span>
+              <span><b>Price:</b> $<%= product.price.toFixed(2) %></span> <!-- Added price -->
+            </div>
+          </div>
+        </li>
+        <% }) %>
+          <% } else { %>
+            <p>No products available. Start by adding a new product.</p>
+            <% } %>
+  </ul>
+
+  <!-- Pagination -->
+  <nav aria-label="Page navigation" class="pagination-container">
+    <ul class="pagination">
+      <!-- Previous Button -->
+      <li class="page-item <%= page === 1 ? 'disabled' : '' %>">
+        <a class="page-link"
+          href="/admin/products/<%= page - 1 %>?search=<%= searchQuery %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>&sortBy=<%= sortField %>&sortOrder=<%= sortOrder %>">Previous</a>
+      </li>
+
+      <!-- Page Numbers -->
+      <% for (let i=1; i <=totalPages; i++) { %>
+        <li class="page-item <%= page === i ? 'active' : '' %>">
+          <a class="page-link"
+            href="/admin/products/<%= i %>?search=<%= searchQuery %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>&sortBy=<%= sortField %>&sortOrder=<%= sortOrder %>">
+            <%= i %>
+          </a>
+        </li>
+        <% } %>
+
+          <!-- Next Button -->
+          <li class="page-item <%= page === totalPages ? 'disabled' : '' %>">
+            <a class="page-link"
+              href="/admin/products/<%= page + 1 %>?search=<%= searchQuery %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>&sortBy=<%= sortField %>&sortOrder=<%= sortOrder %>">Next</a>
+          </li>
+    </ul>
+  </nav>
+
+</body>
+
+</html>
