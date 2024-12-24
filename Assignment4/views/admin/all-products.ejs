@@ -8,93 +8,94 @@
   <link rel="stylesheet" href="/allcss/allproducts.css">
 </head>
 <style>
-body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #2c3e50, #4a4a4a);
-  margin: 0;
-  padding: 0;
-  color: #ecf0f1;
-}
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #2c3e50, #4a4a4a);
+    margin: 0;
+    padding: 0;
+    color: #ecf0f1;
+  }
 
-/* Product list container */
-.product-list {
-  display: flex;
-  overflow-x: auto;
-  padding: 1rem;
-  margin: 0;
-  list-style: none;
-  gap: 1.5rem;
-  justify-content: flex-start;
-}
+  /* Product list container */
+  .product-list {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem;
+    margin: 0;
+    list-style: none;
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
 
-/* Individual product item styles */
-.product-list li {
-  background: linear-gradient(to bottom, #34495e, #2c3e50);
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  color: #ecf0f1;
-  transition: transform 0.3s, box-shadow 0.3s;
-  width: 250px; /* Fixed width for each product */
-  flex-shrink: 0; /* Prevent items from shrinking */
-}
+  /* Individual product item styles */
+  .product-list li {
+    background: linear-gradient(to bottom, #34495e, #2c3e50);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #ecf0f1;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 250px;
+    /* Fixed width for each product */
+    flex-shrink: 0;
+    /* Prevent items from shrinking */
+  }
 
-.product-list li:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-}
+  .product-list li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
 
-.product-list img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
+  .product-list img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
 
-.product-list h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #f1c40f;
-  margin-bottom: 0.5rem;
-}
+  .product-list h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f1c40f;
+    margin-bottom: 0.5rem;
+  }
 
-.product-list p {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: #bdc3c7;
-}
+  .product-list p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #bdc3c7;
+  }
 
-/* Button styles */
-.product-list button {
-  background: linear-gradient(to right, #e67e22, #f1c40f);
-  color: #2c3e50;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  margin-top: 1rem;
-}
+  /* Button styles */
+  .product-list button {
+    background: linear-gradient(to right, #e67e22, #f1c40f);
+    color: #2c3e50;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 1rem;
+  }
 
-.product-list button:hover {
-  background: linear-gradient(to right, #f1c40f, #e74c3c);
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-}
+  .product-list button:hover {
+    background: linear-gradient(to right, #f1c40f, #e74c3c);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+  }
 
-/* Hide scrollbar for horizontal scroll */
-.product-list::-webkit-scrollbar {
-  display: none;
-}
+  /* Hide scrollbar for horizontal scroll */
+  .product-list::-webkit-scrollbar {
+    display: none;
+  }
 
-.product-list {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
+  .product-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 </style>
 
 
@@ -104,20 +105,23 @@ body {
   <h2 style="color: white;text-align: center;">All Products</h2>
 
   <!-- Search bar, price filter, and Sort By Dropdown -->
- 
-    <div class="search-container">
-     
-  <ul class="product-list">
-      <% products.forEach(product => { %>
-          <li>
-            <!-- <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" style="width: 100px; height: auto;">  -->
-              <h2><%= product.name %></h2>
-              <p>Price: $<%= product.price %></p>
-              <a href="/cart/add/<%= product._id %>"><button>add to Cart</button></a>
 
-          </li>
-      <% }) %>
-  </ul>
+  <div class="search-container">
+
+    <ul class="product-list">
+      <% products.forEach(product=> { %>
+        <li>
+          <!-- <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" style="width: 100px; height: auto;">  -->
+          <h2>
+            <%= product.name %>
+          </h2>
+          <p>Price: $<%= product.price %>
+          </p>
+          <a href="/cart/add/<%= product._id %>"><button>add to Cart</button></a>
+
+        </li>
+        <% }) %>
+    </ul>
     <form method="GET" action="/admin/products/<%= page %>">
       <div>
         <input type="text" name="search" placeholder="Search for products..." value="<%= searchQuery %>">
@@ -168,7 +172,7 @@ body {
             <p>No products available. Start by adding a new product.</p>
             <% } %>
   </ul>
-  
+
   <!-- Pagination -->
   <nav aria-label="Page navigation" class="pagination-container">
     <ul class="pagination">

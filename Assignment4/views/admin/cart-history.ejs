@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart History</title>
     <style>
-        
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(to right, #2c3e50, #4a4a4a);
@@ -14,7 +14,7 @@
             color: #ecf0f1;
         }
 
-      
+
         .cart-history-container {
             background: linear-gradient(to bottom, #34495e, #2c3e50);
             padding: 3rem;
@@ -86,23 +86,27 @@
         }
     </style>
 </head>
+
 <body>
     <div class="cart-history-container">
         <h1>Cart History</h1>
-        
-        <% if (cart && cart.products.length > 0) { %>
-            <ul>
-                <% cart.products.forEach(item => { %>
-                    <li>
-                        <strong><%= item.productId.name %></strong> - Quantity: <%= item.quantity %>
-                    </li>
-                <% }) %>
-            </ul>
-        <% } else { %>
-            <p>Your cart is empty.</p>
-        <% } %>
 
-        <a href="/admin">Back to Dashboard</a>
+        <% if (cart && cart.products.length> 0) { %>
+            <ul>
+                <% cart.products.forEach(item=> { %>
+                    <li>
+                        <strong>
+                            <%= item.productId.name %>
+                        </strong> - Quantity: <%= item.quantity %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } else { %>
+                <p>Your cart is empty.</p>
+                <% } %>
+
+                    <a href="/admin">Back to Dashboard</a>
     </div>
 </body>
+
 </html>

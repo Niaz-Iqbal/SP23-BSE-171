@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <style>
-      
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(to right, #2c3e50, #4a4a4a);
@@ -155,15 +155,19 @@
         }
     </style>
 </head>
+
 <body>
     <div class="cart-container">
         <h1>Your Cart</h1>
         <ul class="cart-list">
-            <% if (cart && cart.products.length > 0) { %>
-                <% cart.products.forEach(item => { %>
+            <% if (cart && cart.products.length> 0) { %>
+                <% cart.products.forEach(item=> { %>
                     <li class="cart-item">
-                        <h2><%= item.productId.name %></h2>
-                        <p>Quantity: <%= item.quantity %></p>
+                        <h2>
+                            <%= item.productId.name %>
+                        </h2>
+                        <p>Quantity: <%= item.quantity %>
+                        </p>
                         <form action="/cart/update/<%= item.productId._id %>" method="POST">
                             <input type="number" name="quantity" value="<%= item.quantity %>" min="1">
                             <button type="submit">Update</button>
@@ -172,14 +176,16 @@
                             <button type="submit">Remove</button>
                         </form>
                     </li>
-                <% }) %>
-                <p class="cart-total">Total Price: $<%= cart.products.reduce((total, item) => total + item.productId.price * item.quantity, 0) %></p>
-            <% } else { %>
-                <p class="cart-empty">Your cart is empty.</p>
-            <% } %>
+                    <% }) %>
+                        <p class="cart-total">Total Price: $<%= cart.products.reduce((total, item)=> total +
+                                item.productId.price * item.quantity, 0) %></p>
+                        <% } else { %>
+                            <p class="cart-empty">Your cart is empty.</p>
+                            <% } %>
         </ul>
         <a href="/admin/products/:page?" class="continue-shopping">Continue Shopping</a>
         <a href="/checkout"><button class="checkout-button">Checkout</button></a>
     </div>
 </body>
+
 </html>
