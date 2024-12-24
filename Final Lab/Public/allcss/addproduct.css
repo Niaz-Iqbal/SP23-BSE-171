@@ -1,0 +1,141 @@
+/* General Body Styling */
+body {
+    background: linear-gradient(45deg, #1c1c1c, #2c3e50);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+nav {
+    background: #2c3e50;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #ff9800;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1rem;
+}
+
+/* Form Container */
+.add-product-container {
+    margin: 30px auto;
+    max-width: 600px;
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-container h1 {
+    text-align: center;
+    color: #ff9800;
+    margin-bottom: 20px;
+}
+
+.add-product-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-product-container input[type="text"],
+.add-product-container textarea,
+.add-product-container input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-product-container button,
+.add-product-container a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #4caf50;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.add-product-container button:hover,
+.add-product-container a:hover {
+    background-color: #45a049;
+}
+
+.add-product-container .back-button {
+    background-color: #ff9800;
+}
+
+.add-product-container .back-button:hover {
+    background-color: #ff5722;
+}
+
+/* Add spacing and styling for new price field */
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #555;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* Add uniform styling for input fields, including price */
+.add-product-container input[type="text"],
+.add-product-container textarea,
+.add-product-container input[type="file"],
+.add-product-container input[type="number"] {
+    width: 100%;
+    /* Ensures consistent width for all fields */
+    padding: 10px;
+    /* Matches other input fields */
+    margin-bottom: 20px;
+    /* Consistent spacing */
+    border: 1px solid #ddd;
+    /* Same border style */
+    border-radius: 5px;
+    /* Rounded corners for uniformity */
+    box-sizing: border-box;
+    /* Ensures padding doesn’t affect total width */
+}

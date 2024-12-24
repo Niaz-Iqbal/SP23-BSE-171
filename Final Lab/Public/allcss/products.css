@@ -1,0 +1,516 @@
+body {
+    background: linear-gradient(45deg,
+            #1c1c1c,
+            #2c3e50);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 8px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.search-container button {
+    padding: 8px 12px;
+}
+
+.add-button {
+    margin-left: auto;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+.pagination-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+ul.pagination {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* This ensures the list items are aligned horizontally */
+    justify-content: center;
+    /* Center the pagination buttons */
+}
+
+.page-item {
+    margin-right: 10px;
+}
+
+.page-link {
+    padding: 8px 12px;
+    color: #007bff;
+    /* Default blue text color */
+    background-color: transparent;
+    /* Transparent background */
+    border: 1px solid #007bff;
+    /* Blue border */
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    /* Ensure it's a clickable item */
+}
+
+/* Active page (highlight the current page) */
+.page-item.active .page-link {
+    background-color: #007bff;
+    /* Blue background for active page */
+    color: white;
+    /* White text */
+}
+
+/* Hover effect for page links */
+.page-link:hover {
+    background-color: #0056b3;
+    /* Darker blue when hovered */
+    color: white;
+    /* Text stays white */
+}
+
+/* Disabled state (Previous / Next buttons when at start or end) */
+.page-item.disabled .page-link {
+    background-color: #e0e0e0;
+    /* Grey background for disabled buttons */
+    color: #aaa;
+    /* Light grey text */
+    border-color:  white;
+    /* Grey border */
+    cursor: not-allowed;
+    /* Show not-allowed cursor */
+}
+
+/* Disabled hover state */
+.page-item.disabled .page-link:hover {
+    background-color: #e0e0e0;
+    /* No hover effect for disabled button */
+    color: #aaa;
+    /* Keep text light grey */
+}
+
+
+/* Navbar Styling */
+nav {
+    background: #2c3e50;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #ff9800;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1rem;
+}
+
+/* Products Section */
+.products-section {
+    margin: 30px auto;
+    max-width: 700px;
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.products-section h1 {
+    color: #ff9800;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.products-section a.add-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #4caf50;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.products-section a.add-button:hover {
+    background-color: #45a049;
+}
+
+.products-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.products-section li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.products-section .product-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.products-section img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.products-section .product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.products-section span {
+    color: #1c1c1c;
+    display: block;
+}
+
+.products-section a,
+.products-section button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff9800;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.products-section a:hover,
+.products-section button:hover {
+    background-color: #ff5722;
+}
+
+/* Overall Page Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50;
+    /* Dark blue-gray background */
+    color: #ecf0f1;
+}
+
+.products-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #34495e;
+    /* Dark gray */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #e67e22;
+    /* Vibrant orange */
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Search & Sort Bar */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.search-container form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-container input,
+.search-container select,
+.search-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.search-container input {
+    flex: 1;
+    max-width: 250px;
+}
+
+.search-container button {
+    background-color: #27ae60;
+    /* Green button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #2ecc71;
+}
+
+.search-container a.add-button {
+    padding: 10px 20px;
+    background-color: #e67e22;
+    /* Orange button */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.search-container a.add-button:hover {
+    background-color: #d35400;
+}
+
+/* Product List */
+.product-list {
+    list-style: none;
+    padding: 0;
+}
+
+.product-list li {
+    display: flex;
+    align-items: center;
+    background-color: #1abc9c;
+    /* Light teal background */
+    margin-bottom: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-list li:hover {
+    transform: translateY(-5px);
+}
+
+.product-details {
+    display: flex;
+    gap: 10px;
+    /* Reduced gap for a tighter layout */
+    padding: 12px;
+    /* Reduced padding for smaller layout */
+    flex: 1;
+}
+
+.product-details img {
+    width: 110px;
+    /* Even smaller image width */
+    height: 110px;
+    /* Even smaller image height */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-info {
+    flex-grow: 1;
+    color: black;
+}
+
+.product-info span {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    /* Even smaller font size */
+}
+
+.product-info b {
+    font-weight: 600;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+}
+
+.action-buttons a {
+    padding: 6px 14px;
+    background-color: #3498db;
+    /* Blue action buttons */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons a:hover {
+    background-color: #2980b9;
+}
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    gap: 12px;
+}
+
+.pagination .page-item a {
+    padding: 8px 16px;
+    background-color: #f39c12;
+    /* Yellowish background */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.pagination .page-item a:hover {
+    background-color: #f1c40f;
+}
+
+.pagination .page-item.active a {
+    background-color: #e67e22;
+    color: white;
+}
+
+.pagination .page-item.disabled a {
+    background-color: #ecf0f1;
+    color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* No Products Available */
+.no-products {
+    text-align: center;
+    color: #bdc3c7;
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
+
+/* General layout for product cards */
+.product-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* .product-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+} */
+
+.product-details {
+    display: flex;
+    align-items: center;
+}
+
+.product-details img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.product-info span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Styling for action buttons */
+.action-buttons a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.action-buttons a:hover {
+    background-color: #d32f2f;
+}
+
+/* Pagination styling */
+.pagination-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination {
+    display: inline-flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.pagination .page-item {
+    margin: 0 5px;
+}
+
+.pagination .page-link {
+    padding: 10px 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination .page-link:hover {
+    background-color: #ddd;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #2196F3;
+    color: white;
+    border-color: #2196F3;
+}

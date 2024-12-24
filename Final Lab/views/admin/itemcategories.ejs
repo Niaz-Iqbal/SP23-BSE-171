@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categories</title>
+    <link rel="stylesheet" href="/allcss/itemcategories.css">
+    
+  </head>
+  <body>
+    <!-- Categories Section -->
+    <div class="categories-section">
+      <h1>Categories</h1>
+      <a href="/admin/categories/new" style="margin-left: 37%"
+        >Add New Category</a
+      >
+      <ul>
+        <% categories.forEach(category => { %>
+        <li>
+          <!-- Use title and detail from MongoDB schema -->
+          <span>
+            <b><%= category.title %></b>
+            <br />
+            <small><%= category.detail %></small>
+          </span>
+          <div>
+            <a href="/admin/categories/<%= category._id %>/edit">Edit</a>
+            <form
+              action="/admin/categories/<%= category._id %>/delete"
+              method="POST"
+              style="display: inline"
+            >
+              <button type="submit" style="margin-top: 15%">Delete</button>
+            </form>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

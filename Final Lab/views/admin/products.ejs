@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products</title>
+  <link rel="stylesheet" href="/allcss/products.css">
+</head>
+
+<body>
+  <!-- Products Section -->
+  <div class="products-section">
+    <h1>Products</h1>
+
+      <!-- Add New Product Button -->
+      <a href="/admin/products/add" class="add-button">Add New Product</a>
+    </div>
+
+    <!-- Product List -->
+    <ul class="product-list">
+      <% if (products.length > 0) { %>
+        <% products.forEach(product => { %>
+          <li>
+            <div class="product-details">
+              <!-- Product Image -->
+              <img src="/<%= product.image %>" alt="<%= product.name %>" />
+
+              <!-- Product Info -->
+              <div class="product-info">
+                <span><b>Name:</b> <%= product.name %></span>
+                <span><b>Detail:</b> <%= product.detail %></span>
+                <span><b>Price:</b> $<%= product.price.toFixed(2) %></span> <!-- Added price -->
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+              <a href="/admin/products/<%= product._id %>/edit">Edit</a>
+              <a href="/admin/products/<%= product._id %>/delete">Delete</a>
+            </div>
+          </li>
+        <% }) %>
+      <% } else { %>
+        <p class="no-products">No products available. Start by adding a new product.</p>
+      <% } %>
+    </ul>
+    
+  </div>
+</body>
+
+</html>
