@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4a4a4a);
+            margin: 0;
+            padding: 0;
+            color: #ecf0f1;
+        }
+
+        .checkout-container {
+            background: linear-gradient(to bottom, #34495e, #2c3e50);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 2rem auto;
+            border: 2px solid #1abc9c;
+            color: #ecf0f1;
+        }
+
+        .checkout-container h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1abc9c;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-container label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            font-weight: bold;
+            color: #bdc3c7;
+        }
+
+        .checkout-container input,
+        .checkout-container textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 10px;
+            border: 2px solid #1abc9c;
+            margin-bottom: 1.5rem;
+            background: #2c3e50;
+            color: #ecf0f1;
+            font-size: 1rem;
+        }
+
+        .checkout-container input:focus,
+        .checkout-container textarea:focus {
+            border-color: #e74c3c;
+            outline: none;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+
+        .checkout-container fieldset {
+            border: 2px solid #1abc9c;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-container legend {
+            color: #1abc9c;
+            font-weight: bold;
+        }
+
+        .checkout-container button {
+            display: inline-block;
+            background: linear-gradient(to right, #e67e22, #f1c40f);
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            margin-top: 2rem;
+        }
+
+        .checkout-container button:hover {
+            background: linear-gradient(to right, #f1c40f, #e74c3c);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <form id="checkoutForm" action="/checkout" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <fieldset>
+                <legend>Payment Method:</legend>
+                <label>
+                    <input type="radio" name="paymentMethod" value="cash" required>
+                    Cash
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="debitCard" required>
+                    Debit Card
+                </label>
+            </fieldset>
+
+            <button id="viewOrderHistory">Submit Order</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('viewOrderHistory').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission
+            window.location.href = '/admin/cart-history'; // Redirect to order history
+        });
+    </script>
+</body>
+</html>

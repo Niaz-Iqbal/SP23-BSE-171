@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-router.get("/admin/products", async (req, res) => {
+router.get("/admin/products",isAuthenticated,  async (req, res) => {
   try {
     const products = await Product.find();
     res.render("admin/products", { products, layout: "layout/adminlayout" });
